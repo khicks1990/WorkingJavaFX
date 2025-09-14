@@ -35,4 +35,8 @@
       }
   },
   "postAttachCommand": "chmod +x .devcontainer/auto_commit.sh && .devcontainer/auto_commit.sh &"
+    ,
+    "postCreateCommand": "mvn clean compile"
+    ,
+    "postStartCommand": "mvn javafx:run"
 }
