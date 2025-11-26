@@ -1,16 +1,10 @@
 
 {
     "name": "Java",
-    "image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
     "build": {
         "dockerfile": "Dockerfile"
     },
     "features": {
-        "ghcr.io/devcontainers/features/java:1": {
-            "version": "none",
-            "installMaven": "false",
-            "installGradle": "false"
-        },
         "ghcr.io/devcontainers/features/desktop-lite:1": {
             "password": "vscode",
             "webPort": "6080",
@@ -20,9 +14,6 @@
 "customizations": {
       "vscode": {
           "extensions": [
-              "dbaeumer.vscode-eslint",
-              "esbenp.prettier-vscode",
-              "streetsidesoftware.code-spell-checker",
               "vscjava.vscode-java-pack",
               "ms-azuretools.vscode-docker"
           ]
@@ -34,6 +25,8 @@
           "label": "GUI Output"
       }
   },
+  "postAttachCommand": "chmod +x .devcontainer/auto_commit.sh && .devcontainer/auto_commit.sh &"
+    ,
     "postCreateCommand": "mvn clean compile"
     ,
     "postStartCommand": "mvn javafx:run"
